@@ -9,7 +9,7 @@ const ACTION = {
   STOP_INTERVAL: "stop_interval",
 };
 
-import { useState, useReducer, useEffect } from "react";
+import { useReducer, useEffect } from "react";
 // button click
 //    ↓
 // dispatch action
@@ -121,7 +121,7 @@ export const SimpleCounterWithReducer = () => {
       clearInterval(intervalId);
 
       dispatch({
-        type: "stop_interval",
+        type: ACTION.STOP_INTERVAL,
       });
 
       console.log("Stopped");
@@ -132,59 +132,24 @@ export const SimpleCounterWithReducer = () => {
   const evenOdd = counter % 2 === 0 ? "Even" : "Odd";
   const disableDecrement = counter === 0;
 
-  //   const handleIncrement = () => {
-  //     // if (counter + stepValue <= maxCounter)
-  //     const newCounter = Math.min(counter + stepValue, maxCounter);
-  //     setCounter(newCounter);
-
-  //     if (newCounter != counter) {
-  //       // Only add to history if counter actually changed
-
-  //       // setHistory([...history, newCounter]);
-  //       // or
-  //       setHistory((prev) => [...prev, newCounter]);
-  //     }
-  //   };
-
   const handleIncrement = () => {
-    dispatch({ type: "increment" });
+    dispatch({ type: ACTION.INCREMENT });
   };
-
-  //   const handleDecrement = () => {
-  //     // if (counter - stepValue > 0) setCounter(counter - stepValue);
-  //     setCounter(Math.max(counter - stepValue, 0));
-  //   };
 
   const handleDecrement = () => {
-    dispatch({ type: "decrement" });
+    dispatch({ type: ACTION.DECREMENT });
   };
-
-  //   const handleReset = () => {
-  //     setCounter(0);
-  //     setStepValue(1);
-  //     setHistory([]);
-  //   };
 
   const handleReset = () => {
-    dispatch({ type: "reset" });
+    dispatch({ type: ACTION.RESET });
   };
-
-  //   const handleUndo = () => {
-  //     if (history.length <= 1) return;
-
-  //     let newhistory = history.slice(0, -1);
-  //     setHistory(newhistory);
-  //     setCounter(newhistory.at(-1));
-  //   };
 
   const handleUndo = () => {
-    dispatch({ type: "undo" });
+    dispatch({ type: ACTION.UNDO });
   };
 
-  //   const onChange = (e) => setStepValue(Number(e.target.value));
-
   const onChange = (e) => {
-    dispatch({ type: "set_step_value", payload: Number(e.target.value) });
+    dispatch({ type: ACTION.SET_STEP_VALUE, payload: Number(e.target.value) });
   };
 
   const handleStartInterval = () => {
@@ -192,29 +157,18 @@ export const SimpleCounterWithReducer = () => {
     console.log("Interval Running");
 
     let id = setInterval(() => {
-      dispatch({ type: "increment_by_interval" });
-      //   setCounter((prev) => {
-      //     const newCount = Math.min(prev + 10, maxCounter);
-
-      //     if (newCount === maxCounter) {
-      //       handleStopInterval(id);
-      //       //   clearInterval(id);
-      //       //   setIntervalId(null);
-      //       //   console.log("Stopped");
-      //     }
-
-      //     return newCount;
-      //   });
+      dispatch({ type: ACTION.INCREMENT_BY_INTERVAL });
     }, 1000);
+
     console.log(id);
-    dispatch({ type: "set_interval_id", payload: id });
+    dispatch({ type: ACTION.SET_INTERVAL_ID, payload: id });
   };
 
   const handleStopInterval = (intervalId) => {
     if (!intervalId) return;
     clearInterval(intervalId);
-    dispatch({ type: "stop_interval" });
-    // setIntervalId(null);
+
+    dispatch({ type: ACTION.STOP_INTERVAL });
     console.log("Stopped");
   };
 
