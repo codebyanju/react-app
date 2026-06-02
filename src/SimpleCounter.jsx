@@ -5,11 +5,24 @@ import { useState } from "react";
 export const SimpleCounter = () => {
   const [counter, setCounter] = useState(0);
   const [stepValue, setStepValue] = useState(1);
-  const maxCounter = 10;
+  const [history, setHistory] = useState([]);
+
+  const maxCounter = 20;
+  const evenOdd = counter % 2 === 0 ? "Even" : "Odd";
+  const disableDecrement = counter === 0;
 
   const handleIncrement = () => {
     // if (counter + stepValue <= maxCounter)
-    setCounter(Math.min(counter + stepValue, maxCounter));
+    const newCounter = Math.min(counter + stepValue, maxCounter);
+    setCounter(newCounter);
+
+    if (newCounter != counter) {
+      // Only add to history if counter actually changed
+
+      // setHistory([...history, newCounter]);
+      // or
+      setHistory((prev) => [...prev, newCounter]);
+    }
   };
 
   const handleDecrement = () => {
@@ -24,19 +37,26 @@ export const SimpleCounter = () => {
 
   const onChange = (e) => setStepValue(Number(e.target.value));
 
-  const evenOdd = counter % 2 === 0 ? "Even" : "Odd";
+  const handleUndo = () => {
+    if (history.length <= 1) return;
 
-  const disableDecrement = counter === 0;
+    let newhistory = history.slice(0, -1);
+    setHistory(newhistory);
+    setCounter(newhistory.at(-1));
+  };
 
   return (
     <>
-      <div>
+      <p>
         Counter: {counter} - {evenOdd}
-      </div>
+      </p>
+      {maxCounter === counter && <p>"Max limit reached"</p>}
+      <p>History: {history.join()}</p>
       <button onClick={() => handleIncrement()}>Increment</button>
       <button onClick={() => handleDecrement()} disabled={disableDecrement}>
         Decrement
       </button>
+      <button onClick={handleUndo}>Undo</button>
       <button onClick={handleReset}>Reset</button>
       <p>
         Step Value:
