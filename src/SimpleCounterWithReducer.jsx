@@ -106,17 +106,13 @@ function reducer(state, action) {
 }
 
 export const SimpleCounterWithReducer = () => {
-  //   const [counter, setCounter] = useState(0);
-  //   const [stepValue, setStepValue] = useState(1);
-  //   const [history, setHistory] = useState([]);
-  //   const [intervalId, setIntervalId] = useState(null);
-
   // Hooks MUST be inside component/custom hook.
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { counter, stepValue, history, intervalId } = state;
 
   useEffect(() => {
+    // stop interval automatically on reaching max counter
     if (counter === maxCounter && intervalId) {
       clearInterval(intervalId);
 
