@@ -2,7 +2,7 @@
 // import { ComponentSharing } from "./ComponentSharing";
 // import { SimpleCounter } from "./SimpleCounter";
 // import { SimpleCounterWithReducer } from "./SimpleCounterWithReducer";
-import { ShoppingCartWIthReducer } from "./ShoppingCartWithReducer";
+import { ShoppingCartWithReducer } from "./useReducer/ShoppingCartWithReducer";
 import "./App.css";
 
 function App() {

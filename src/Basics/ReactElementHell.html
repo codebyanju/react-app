@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codevolution react-app</title>
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- REACT CDN LINKS -->
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+
+    <!-- 
+    <div class="parent">
+      <div class="child1">
+        <h1 class="nested-child1">Nested child1</h1>
+      </div>
+      <div class="child2">Sibling Child 2</div>
+    </div> -->
+
+    <!-- CREATE REACT ELEMENT -->
+    <script>
+      const reactEle = React.createElement("div", { className: "parent" }, [
+        React.createElement(
+          "div",
+          { className: "child1" },
+          React.createElement(
+            "h1",
+            { className: "nested-child1" },
+            "Nested child1",
+          ),
+        ),
+        React.createElement(
+          "div",
+          { className: "child2" },
+          React.createElement(
+            "h1",
+            { className: "nested-child2" },
+            "Nested child2",
+          ),
+          React.createElement(
+            "h2",
+            { className: "nested-child2-sibling" },
+            "Siblings are created by comma separated or inside array",
+          ),
+        ),
+      ]);
+
+      console.log("reactEle", reactEle);
+
+      // CREATE ROOT
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+
+      // RENDER
+      root.render(reactEle);
+    </script>
+  </body>
+</html>

@@ -5,10 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>codevolution react-app</title>
+
+    <!-- Import CSS -->
+    <link rel="stylesheet" href="./styles.css" />
   </head>
+
   <body>
     <div id="root"></div>
 
+    <!-- REACT CDN LINKS -->
     <script
       crossorigin
       src="https://unpkg.com/react@18/umd/react.development.js"
@@ -18,16 +23,7 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
     ></script>
 
-    <script>
-      const reactEle = React.createElement(
-        "h1",
-        { className: "box" },
-        "Hello World from React.createElement",
-      );
-
-      const root = ReactDOM.createRoot(document.getElementById("root"));
-
-      root.render(reactEle);
-    </script>
+    <!-- Import JS AFTER REACT CDN -->
+    <script type="module" src="./App.js"></script>
   </body>
 </html>
