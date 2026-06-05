@@ -58,7 +58,7 @@ const reducer = (state, action) => {
   }
 };
 
-export const ShoppingCartWIthReducer = () => {
+export const ShoppingCartWithReducer = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const { cart } = state;

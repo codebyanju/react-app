@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div id="center">
-      <ShoppingCartWIthReducer />
+      <ShoppingCartWithReducer />
       {/* <SimpleCounterWithReducer />
       <SimpleCounter /> */}
       {/* <ComponentSharing /> */}

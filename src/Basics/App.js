@@ -1,5 +1,5 @@
-// import React from "react";
-// import ReactDOM from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
 
 // CREATE REACT ELEMENT
 const reactEle = React.createElement(
