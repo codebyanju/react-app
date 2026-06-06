@@ -200,3 +200,39 @@ function datamover(acc, curr) {
 }
 
 arr.reduce(datamover, []);
+
+//-------------------------------------------------------------------------- 10 find names whose age < 30
+const users = [
+  { name: "Anju", age: 29 },
+  { name: "Abhi", age: 32 },
+  { name: "Chotu", age: 25 },
+];
+
+// find names whose age < 30
+//[ 'Anju', 'Chotu' ]
+
+// FILTER , MAP
+const output = users.filter((user) => user.age < 30).map((user) => user.name);
+
+// REDUCE 1 - MUTATION
+const output = users.reduce((acc, user) => {
+  if (user.age < 30) acc.push(user.name);
+
+  return acc;
+}, []);
+
+// REDUCE 2 - IMMUTABLE
+const output = users.reduce((acc, user) => {
+  if (user.age < 30) acc = [...acc, user.name];
+
+  return acc;
+}, []);
+
+// I chose reduce because it’s ideal for building this nested structure.
+// I’ll use reduce to build the nested object.
+// Reduce takes two arguments: a callback that runs for each element in array and an initial value.
+
+// In each iteration, I’ll check if the role exists in the accumulator. If not, I’ll create it.
+// Then I check if the city exists under that role. If not, I create that too.
+// Finally, I push the user into the correct array.
+// In the end, reduce returns the nested object."
