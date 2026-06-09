@@ -1,18 +1,13 @@
-// import Todo from "./Todo";
-// import { ComponentSharing } from "./ComponentSharing";
-// import { SimpleCounter } from "./SimpleCounter";
-// import { SimpleCounterWithReducer } from "./SimpleCounterWithReducer";
-import { ShoppingCartWithReducer } from "./useReducer/ShoppingCartWithReducer";
+import Header from "./Header";
+
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
     <div id="center">
-      <ShoppingCartWithReducer />
-      {/* <SimpleCounterWithReducer />
-      <SimpleCounter /> */}
-      {/* <ComponentSharing /> */}
-      {/* <Todo /> */}
+      <Header />
+      <Outlet />
     </div>
   );
 }

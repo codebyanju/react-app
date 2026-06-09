@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const ComponentSharing = () => {
+export const ShoppingCartComponentSharing = () => {
   const [cartItems, setCartItems] = useState({
     reactCourse: 0,
     vueCourse: 0,

@@ -131,3 +131,13 @@ button:active {
   justify-content: space-between;
   padding: 4px 0px;
 }
+
+.header {
+  display: flex;
+}
+
+.header > li {
+  padding: 8px;
+  list-style: none;
+  cursor: pointer;
+}
