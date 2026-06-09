@@ -146,6 +146,7 @@ button:active {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
+  gap: 20px;
 }
 
 .res-card {
@@ -153,9 +154,14 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: 4px;
+  width: 260px;
+  box-sizing: border-box;
 }
 
 .res-image {
-  height: 240px;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
   border-radius: 16px;
 }
