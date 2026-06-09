@@ -164,4 +164,13 @@ button:active {
   object-fit: cover;
   display: block;
   border-radius: 16px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.res-card:hover .res-image {
+  transform: scale(1.03);
+  box-shadow: var(--shadow);
+  cursor: pointer;
 }
