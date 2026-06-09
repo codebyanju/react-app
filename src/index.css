@@ -141,3 +141,21 @@ button:active {
   list-style: none;
   cursor: pointer;
 }
+
+.res-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.res-card {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.res-image {
+  height: 240px;
+  border-radius: 16px;
+}

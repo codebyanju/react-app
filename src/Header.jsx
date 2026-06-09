@@ -22,6 +22,9 @@ const Header = () => {
         <li>
           <Link to="/counter-reducer">counter-reducer</Link>
         </li>
+        <li>
+          <Link to="/restaurant">Restaurant App</Link>
+        </li>
       </ul>
     </div>
   );

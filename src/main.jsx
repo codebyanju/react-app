@@ -3,19 +3,26 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.css";
-import App from "./App.jsx";
+import App from "./App";
 import Todo from "./Apps/Todo";
+import Error from "./Error";
 import {
   SimpleCounter,
   ShoppingCartComponentSharing,
   SimpleCounterWithReducer,
   ShoppingCartWithReducer,
 } from "./useReducer";
+import RestaurantContainer from "./RestaurantApp/RestaurantContainer";
+import AboutUs from "./RestaurantApp/AboutUs";
+import ContactUs from "./RestaurantApp/ContactUs";
+import RestaurantHome from "./RestaurantApp/RestaurantHome";
+import Cart from "./RestaurantApp/Cart";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -48,6 +55,25 @@ const router = createBrowserRouter([
       {
         path: "/cart-reducer",
         element: <ShoppingCartWithReducer />,
+      },
+      {
+        path: "/restaurant",
+        element: <RestaurantContainer />,
+        children: [
+          { index: true, element: <RestaurantHome /> },
+          {
+            path: "about",
+            element: <AboutUs />,
+          },
+          {
+            path: "contact",
+            element: <ContactUs />,
+          },
+          {
+            path: "cart",
+            element: <Cart />,
+          },
+        ],
       },
     ],
   },
