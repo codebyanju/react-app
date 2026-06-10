@@ -1,6 +1,6 @@
-const RestaurantCard = (props) => {
+const RestaurantCard = ({ resData }) => {
   const { name, avgRating, cloudinaryImageId, cuisines, costForTwo } =
-    props.resData.info;
+    resData.info;
   return (
     <div className="res-card">
       <img

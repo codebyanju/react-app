@@ -40,6 +40,8 @@ const RestaurantHome = () => {
     setFilteredResList(searchResults);
   };
 
+  if (filteredResList.length === 0) return <div>Loading....</div>;
+
   return (
     <div>
       Restaurant Home
