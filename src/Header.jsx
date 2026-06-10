@@ -23,7 +23,7 @@ const Header = () => {
           <Link to="/counter-reducer">counter-reducer</Link>
         </li>
         <li>
-          <Link to="/restaurant">Restaurant App</Link>
+          <Link to="/res">Restaurant App</Link>
         </li>
       </ul>
     </div>

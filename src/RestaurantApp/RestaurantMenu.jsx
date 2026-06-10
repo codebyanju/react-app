@@ -1,5 +1,8 @@
+import { useParams } from "react-router-dom";
+
 const RestaurantMenu = () => {
-  return <div>RestaurantMenu</div>;
+  const { resId } = useParams();
+  return <div>{resId} </div>;
 };
 
 export default RestaurantMenu;

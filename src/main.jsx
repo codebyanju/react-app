@@ -17,6 +17,7 @@ import AboutUs from "./RestaurantApp/AboutUs";
 import ContactUs from "./RestaurantApp/ContactUs";
 import RestaurantHome from "./RestaurantApp/RestaurantHome";
 import Cart from "./RestaurantApp/Cart";
+import RestaurantMenu from "./RestaurantApp/RestaurantMenu";
 
 const router = createBrowserRouter([
   {
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
         element: <ShoppingCartWithReducer />,
       },
       {
-        path: "/restaurant",
+        path: "/res",
         element: <RestaurantContainer />,
         children: [
           { index: true, element: <RestaurantHome /> },
@@ -72,6 +73,10 @@ const router = createBrowserRouter([
           {
             path: "cart",
             element: <Cart />,
+          },
+          {
+            path: ":resId",
+            element: <RestaurantMenu />,
           },
         ],
       },

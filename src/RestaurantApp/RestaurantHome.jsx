@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 
 const RestaurantHome = () => {
@@ -48,7 +48,9 @@ const RestaurantHome = () => {
         <input type="text" value={searchValue} onChange={handleSearch} />
         <div className="res-card-container">
           {filteredResList.map((res) => (
-            <RestaurantCard key={res.info.id} resData={res} />
+            <Link to={"/res/" + res.info.id} key={res.info.id}>
+              <RestaurantCard resData={res} />
+            </Link>
           ))}
         </div>
       </div>
