@@ -7,6 +7,14 @@ const RestaurantHome = () => {
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchValue, setSearchValue] = useState("");
 
+  useEffect(() => {
+    fetchRestaurants();
+
+    return () => {
+      console.log("Res Home - useeffect unmount");
+    };
+  }, []);
+
   const fetchRestaurants = async () => {
     const data = await fetch(
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.3623546&lng=76.97870759999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING",
@@ -20,14 +28,6 @@ const RestaurantHome = () => {
       json.data.cards[1].card.card.gridElements.infoWithStyle.restaurants[0],
     );
   };
-
-  useEffect(() => {
-    fetchRestaurants();
-
-    return () => {
-      console.log("Res Home - useeffect unmount");
-    };
-  }, []);
 
   const filterTopRestaurants = () => {
     const filter = resList.filter((res) => res.info.avgRating > 4.5);

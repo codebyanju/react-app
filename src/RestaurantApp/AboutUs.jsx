@@ -25,7 +25,8 @@ class AboutUs extends React.Component {
     console.log("Parent constructor");
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    // API logic
     console.log("Parent Component Did Mount");
   }
 
