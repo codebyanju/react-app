@@ -23,6 +23,10 @@ const RestaurantHome = () => {
 
   useEffect(() => {
     fetchRestaurants();
+
+    return () => {
+      console.log("Res Home - useeffect unmount");
+    };
   }, []);
 
   const filterTopRestaurants = () => {
