@@ -1,4 +1,4 @@
-import { StrictMode } from "react";
+import { StrictMode, Suspense, lazy } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -18,6 +18,14 @@ import ContactUs from "./RestaurantApp/ContactUs";
 import RestaurantHome from "./RestaurantApp/RestaurantHome";
 import Cart from "./RestaurantApp/Cart";
 import RestaurantMenu from "./RestaurantApp/RestaurantMenu";
+
+// Lazy loading
+// on demand loading
+// chunking
+// code splitting
+// dynamic bundling
+// dynamic import
+const Grocery = lazy(() => import("./Grocery"));
 
 const router = createBrowserRouter([
   {
@@ -56,6 +64,14 @@ const router = createBrowserRouter([
       {
         path: "/cart-reducer",
         element: <ShoppingCartWithReducer />,
+      },
+      {
+        path: "grocery",
+        element: (
+          <Suspense fallback={<h1>Loading ...</h1>}>
+            <Grocery />
+          </Suspense>
+        ),
       },
       {
         path: "/res",
