@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const RestaurantHome = () => {
   const [resList, setResList] = useState([]);
   const [filteredResList, setFilteredResList] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+
+  const onlineStatus = useOnlineStatus();
 
   useEffect(() => {
     fetchRestaurants();
@@ -14,6 +17,14 @@ const RestaurantHome = () => {
       console.log("Res Home - useeffect unmount");
     };
   }, []);
+
+  if (onlineStatus === false) {
+    return (
+      <h3>
+        looks like yoou are offline. please check your internet connection!
+      </h3>
+    );
+  }
 
   const fetchRestaurants = async () => {
     const data = await fetch(
