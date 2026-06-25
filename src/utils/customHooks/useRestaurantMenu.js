@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import resMenuData from "../utils/resMenu.json";
+import resMenuData from "../data/resMenu.json";
 
 const useRestaurantMenu = (resId) => {
   const [resMenu, setResMenu] = useState(null);
@@ -19,7 +19,7 @@ const useRestaurantMenu = (resId) => {
 
     // STATIC API DATA
     const json = resMenuData;
-    console.log("json", json);
+    console.log("resMenuData", resMenuData);
     setResMenu(json.data.cards[2].card.card.info);
   };
 

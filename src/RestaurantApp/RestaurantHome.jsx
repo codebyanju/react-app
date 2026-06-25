@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import restaurantsData from "../utils/restaurants.json";
+import useOnlineStatus from "../utils/customHooks/useOnlineStatus";
+import restaurantsData from "../utils/data/restaurants.json";
 
 const RestaurantHome = () => {
   const [resList, setResList] = useState([]);
