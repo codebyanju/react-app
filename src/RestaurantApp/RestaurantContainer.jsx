@@ -4,7 +4,7 @@ import RestaurantHeader from "./RestaurantHeader";
 const RestaurantContainer = () => {
   return (
     <div>
-      <p class="text-lg font-bold underline">RestaurantContainer</p>
+      <p className="text-lg font-bold underline">RestaurantContainer</p>
       <div>
         <RestaurantHeader />
         <Outlet />
