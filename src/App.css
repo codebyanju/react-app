@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 #center {
   padding: 10px;
   gap: 8px;
