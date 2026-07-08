@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
-import resMenuData from "../data/resMenu.json";
+import staticResMenuData from "../data/resMenu.json";
 
 const useRestaurantMenu = (resId) => {
   const [resMenu, setResMenu] = useState(null);
+  const [recommendedMenu, setRecommendedMenu] = useState([]);
+  const [menuCards, setMenuCards] = useState([]);
 
   // Swiggy API Not working
   const fetchRestaurantMenu = async () => {
@@ -18,9 +20,29 @@ const useRestaurantMenu = (resId) => {
     // console.log("json", json);
 
     // STATIC API DATA
-    const json = resMenuData;
-    console.log("resMenuData", resMenuData);
+    const json = staticResMenuData;
+    // console.log("resMenuData", staticResMenuData);
     setResMenu(json.data.cards[2].card.card.info);
+
+    setRecommendedMenu(
+      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card,
+    );
+
+    // console.log(
+    //   "recommendedMenu",
+    //   json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[1].card.card,
+    // );
+
+    setMenuCards(
+      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[3].card.card
+        .categories,
+    );
+
+    console.log(
+      "MenuCards",
+      json.data.cards[4].groupedCard.cardGroupMap.REGULAR.cards[3].card.card
+        .categories,
+    );
   };
 
   // const fetchRestaurantMenu = async () => {
@@ -40,6 +62,8 @@ const useRestaurantMenu = (resId) => {
 
   return {
     resMenu,
+    recommendedMenu,
+    menuCards,
     test: "anju",
   };
 };
