@@ -242,6 +242,7 @@ const output = users.reduce((acc, user) => {
   return acc;
 }, []);
 
+
 // REDUCE 2 - IMMUTABLE
 const output = users.reduce((acc, user) => {
   if (user.age < 30) acc = [...acc, user.name];
@@ -257,3 +258,15 @@ const output = users.reduce((acc, user) => {
 // Then I check if the city exists under that role. If not, I create that too.
 // Finally, I push the user into the correct array.
 // In the end, reduce returns the nested object."
+
+
+// What does push() return?
+// Most people think it returns the array.
+// It doesn't.
+// It returns the new length of the array.
+
+// const arr = [];
+// const result = arr.push("A");
+
+// console.log(arr);    // ["A"]
+// console.log(result); // 1
