@@ -1,4 +1,25 @@
-// Reduce examples
+// Reduce
+
+// "reduce() is used when I want to process an entire array and produce a single final value.
+// That final value can be a number, an object, an array, a string, or any other data structure."
+
+// "reduce iterates through an array and accumulates a result into a single value. 
+// The accumulator carries the result from one iteration to the next, and we return the updated accumulator each time. 
+// The final result can be a number, object, array, string, or any other value
+
+reduce(// callback function, // initial value)
+
+const initialValue = 0;
+const sumWithInitial = array.reduce(
+  (accumulator, currentValue) => { // callback function
+     // Update accumulator
+    return accumulator + currentValue }, 
+  initialValue, // initial Value
+);
+
+// I chose reduce because it’s ideal for building this nested structure.
+// I’ll use reduce to build the nested object.
+// Reduce takes two arguments: a callback that runs for each element in array and an initial value.
 
 //--------------------------------------------------------------------------  1 — Simple Sum
 const numbers = [10, 20, 30];
