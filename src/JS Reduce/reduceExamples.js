@@ -110,6 +110,7 @@ const result = users.reduce((rolesObj, user) => {
 const courses = [
   { id: 1, name: "React" },
   { id: 2, name: "Vue" },
+  { id: 2, name: "Vue" },
 ];
 
 // Output
@@ -118,8 +119,35 @@ const courses = [
 //   2: { id: 2, name: "Vue" }
 // }
 
+const result = courses.reduce((acc, course)=>{
+ 
+  if(!acc[course.id]) {
+    acc[course.id] = course
+  }
+
+  return acc
+}, {})
+
+// If the same key appears twice, what should happen?
+// There are usually three possibilities:
+
+// Overwrite (your current solution)
+// acc[key] = value;
+
+// Keep the first
+// if (!acc[key]) {
+//   acc[key] = value;
+// }
+
+// Store all values
+// if (!acc[key]) {
+//   acc[key] = [];
+// }
+
+// acc[key].push(value);
+
 const result = courses.reduce((groups, course) => {
-  groups[course.id] = { ...(groups[course] || {}), ...course };
+  groups[course.id] = { ...(groups[course.id] || {}), ...course };
 
   return groups;
 }, {});
