@@ -143,7 +143,6 @@ const result = courses.reduce((acc, course)=>{
 // if (!acc[key]) {
 //   acc[key] = [];
 // }
-
 // acc[key].push(value);
 
 const result = courses.reduce((groups, course) => {
@@ -174,6 +173,14 @@ const result = users.reduce((groups, user) => {
 
   return groups;
 }, {});
+
+
+const op = users.reduce((acc,user)=> {
+
+    acc[user.age] = (acc[user.age] || 0) +1
+
+    return acc
+}, {})
 
 //--------------------------------------------------------------------------  6 - Total Cart Summary (Medium)
 const items = [
