@@ -196,13 +196,30 @@ const items = [
 
 const result = items.reduce(
   (acc, item) => {
-    acc[totalItems] = acc[totalItems] + item.quantity;
-    acc[totalAmount] = acc[totalAmount] + item.price * item.quantity;
+    acc.totalItems = item.quantity + acc.totalItems
+    acc.totalAmount = item.quantity * item.price + acc.totalAmount
 
     return acc;
   },
   { totalItems: 0, totalAmount: 0 },
 );
+
+// Rule of thumb
+// Use DOT notation when you know the property name at coding time.
+
+// person.name
+// person.age
+// acc.totalItems
+// acc.totalAmount
+
+// Use BRACKET notation when the property name comes from a variable or expression.
+
+// acc[user.age]
+// acc[course.id]
+// acc[item.role]
+
+// const key = "admin";
+// acc[key]
 
 //--------------------------------------------------------------------------  7. Find Oldest User (Medium)
 const users = [
